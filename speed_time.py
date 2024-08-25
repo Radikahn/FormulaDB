@@ -1,17 +1,13 @@
 from numpy import character
 
 
-class f1collect:
-    
-  
-        
-        
-        
+class speed_time:
     
     @staticmethod
-    def driver1_speed_time(year: int, race_number: int, race_type: str, driver: str):
+    def driver1(year: int, race_number: int, race_type: str, driver: str):
         import json
-        from matplotlib import pyplot as plt
+        import plotly.express as px
+        import plotly.express as px
         import fastf1
         import fastf1.plotting
 
@@ -26,13 +22,11 @@ class f1collect:
         vCar = driver_car_data['Speed']
 
         
-        fig, ax = plt.subplots()
-        ax.plot(t, vCar, label='Fast')
-        ax.set_xlabel('Time')
-        ax.set_ylabel('Speed [Km/h]')
-        ax.set_title(f"{driver} speed in race {race_number} of {year}")
-        ax.legend()
-        plt.show()
+       
+        
+        
+        fig = px.line(x = t, y= vCar, title=f"{driver} speed in race {race_number} of {year}")
+        fig.show()
         
         
     

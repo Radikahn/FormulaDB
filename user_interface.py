@@ -1,9 +1,10 @@
 from matplotlib.dates import YearLocator
-from f1collect import *
+from speed_time import *
 
 class user_interface:
     import traceback
     import logging
+    
     from datetime import datetime
 
     year: int
@@ -21,7 +22,7 @@ class user_interface:
             driver = input("First 3 letters of driver's last name (Ex: Hamilton = HAM)")
 
 
-            print(f1collect.driver1_speed_time(year, race_number, race_type, driver))
+            print(speed_time.driver1(year, race_number, race_type, driver))
 
         except Exception as e:
             if year > current_year:
