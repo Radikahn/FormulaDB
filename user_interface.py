@@ -21,7 +21,7 @@ class user_interface:
             driver = input("First 3 letters of driver's last name (Ex: Hamilton = HAM)")
 
 
-            print(f1collect.driver1_graph(year, race_number, race_type, driver))
+            print(f1collect.driver1_speed_time(year, race_number, race_type, driver))
 
         except Exception as e:
             if year > current_year:

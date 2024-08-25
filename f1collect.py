@@ -2,14 +2,18 @@ from numpy import character
 
 
 class f1collect:
-    import requests
-   
+    
+  
+        
+        
+        
+    
     @staticmethod
-    def driver1_graph(year: int, race_number: int, race_type: str, driver: str):
+    def driver1_speed_time(year: int, race_number: int, race_type: str, driver: str):
+        import json
         from matplotlib import pyplot as plt
         import fastf1
         import fastf1.plotting
-        import json
 
         session = fastf1.get_session(year, race_number, race_type)
         session.load()
@@ -30,6 +34,8 @@ class f1collect:
         ax.legend()
         plt.show()
         
+        
+    
 
 
     
