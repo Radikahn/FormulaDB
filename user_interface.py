@@ -25,9 +25,11 @@ class user_interface:
 
             driver1 = driver_data.driver_data(year, race_number, race_type, driver)
             
+            driver2 = driver_data.driver_data(2019, 2, "R", "LEC")
+            
             plot1 = driver_data_plot.driver_data_plot(driver1)
             
-            plot1.single_driver_plot()
+            plot1.speed_time_compare(driver2)
 
         except Exception as e:
             if year > current_year:
