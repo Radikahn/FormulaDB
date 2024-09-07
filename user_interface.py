@@ -1,10 +1,11 @@
 from matplotlib.dates import YearLocator
-from speed_time import *
+from driver_data_plot import *
 
 class user_interface:
     import traceback
     import logging
-    
+    import driver_data
+    import driver_data_plot
     from datetime import datetime
 
     year: int
@@ -16,13 +17,17 @@ class user_interface:
 
     while True:
         try:
-            year = int(input("Enter season Year (Ex = 2019)"))
-            race_number = int(input("Number of race in the year"))
-            race_type = input("Enter event (FP1 = free prac 1, Q1 = qualifying 1)")
-            driver = input("First 3 letters of driver's last name (Ex: Hamilton = HAM)")
+            year = int(input("Enter season Year (Ex = 2019): "))
+            race_number = int(input("Number of race in the year: "))
+            race_type = input("Enter event (FP1 = free prac 1, Q1 = qualifying 1): ")
+            driver = input("First 3 letters of driver's last name (Ex: Hamilton = HAM): ")
 
 
-            print(speed_time.driver1(year, race_number, race_type, driver))
+            driver1 = driver_data.driver_data(year, race_number, race_type, driver)
+            
+            plot1 = driver_data_plot.driver_data_plot(driver1)
+            
+            plot1.single_driver_plot()
 
         except Exception as e:
             if year > current_year:
