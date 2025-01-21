@@ -25,9 +25,9 @@ class user_interface:
             driver = input("First 3 letters of driver's last name (Ex: Hamilton = HAM): ")
 
 
-            driver =  driver_data.driver_data(year, race_number, race_type, driver)
+            race_data =  driver_data.driver_data(year, race_number, race_type, driver)
 
-            return driver
+            return race_data
 
         except Exception as e:
             if year > current_year:
@@ -41,25 +41,33 @@ class user_interface:
 
 
          try:
-              response = input("Would you like to compare to another driver? (y/n) ")
-
-              return True
+            response = input("Would you like to compare to another driver? (y/n) ")
+            
+            if response == "n" :
+                return False
+            
+            return True
          
          except Exception as e:
-                logging.error(traceback.format_exc())
-                   
-
-
-
+            logging.error(traceback.format_exc())
+            
+            
     driver1 =  collect_driver()
-    plot = driver_data_plot.driver_data_plot(driver1)
-
+    
 
     if ask_compare():
+        plot = driver_data_plot.driver_data_plot(driver1)
         other_driver = collect_driver()
 
         plot.speed_time_compare(other_driver)
+    else:
+        interpret = ""
+        driver_data_plot.driver_data_plot.speed_time_plot(driver1, interpret)
+
         
+        
+
+    
 
 
 
